@@ -1,54 +1,28 @@
-# React + TypeScript + Vite
+# Список пользователей
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение позволяет получить список пользователей, а так же отфильтровать по поисковому запросу,
+который ищет вхождение строки по Имени или Электронной почте. Так же есть фильтрация по городам
+и компаниям. Города и компании берутся из списка пользователей и составляются на лету при загрузке всего списка.
 
-Currently, two official plugins are available:
+Кеширование выставлено для запросов в пределах 5 минут, повторно запросы не будут отправлены в пределах жизни кеша.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Использованные библиотеки
 
-## Expanding the ESLint configuration
+- @tanstack/react-query - для выполнения запросов и кеширования
+- react-router-dom - для навигации
+- sass - для транспайла стилей
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Оптимизации
 
-```js
-export default tseslint.config({
-	extends: [
-		// Remove ...tseslint.configs.recommended and replace with this
-		...tseslint.configs.recommendedTypeChecked,
-		// Alternatively, use this for stricter rules
-		...tseslint.configs.strictTypeChecked,
-		// Optionally, add this for stylistic rules
-		...tseslint.configs.stylisticTypeChecked,
-	],
-	languageOptions: {
-		// other options...
-		parserOptions: {
-			project: ['./tsconfig.node.json', './tsconfig.app.json'],
-			tsconfigRootDir: import.meta.dirname,
-		},
-	},
-})
-```
+Все страницы выполнены в виде динамических подгружаемых компонент,
+по-этому они будут загружены только при непосредственной необхходимости.
+Так же использован встроенный компонент Suspense для отображения прелоадера во время загрузки lazy компонента.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Запуск проекта
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Установите на ваш компьютер NodeJS версии 22 и выше
+- По желанию, установите Git для удобства скачивания репозитория
+- Скачайте на компьютер репозиторий
+- Находясь внутри папки репозитория выполните команду ```npm install``` а зачем ```npm run dev``` для просмотра локальной версии приложения
 
-export default tseslint.config({
-	plugins: {
-		// Add the react-x and react-dom plugins
-		'react-x': reactX,
-		'react-dom': reactDom,
-	},
-	rules: {
-		// other rules...
-		// Enable its recommended typescript rules
-		...reactX.configs['recommended-typescript'].rules,
-		...reactDom.configs.recommended.rules,
-	},
-})
-```
+Так же данное приложение оформлено на хостинге https://app.netlify.com/ ссылка на предпросмотр https://67f4cc2e6fba9df8d9a62e6b--sage-swan-2dbd02.netlify.app/
