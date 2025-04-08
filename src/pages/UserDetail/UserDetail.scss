@@ -1,0 +1,119 @@
+@use '../../styles/variables.scss';
+
+.user-detail {
+	padding: variables.$spacing-xl 0;
+
+	&__loading,
+	&__error {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 400px;
+
+		h2 {
+			margin-bottom: variables.$spacing-md;
+		}
+
+		p {
+			margin-bottom: variables.$spacing-lg;
+			color: variables.$text-secondary;
+		}
+	}
+
+	&__nav {
+		margin-bottom: variables.$spacing-xl;
+	}
+
+	&__back {
+		display: inline-block;
+		padding: variables.$spacing-sm variables.$spacing-md;
+		color: variables.$text-secondary;
+		font-weight: 500;
+
+		&:hover {
+			color: variables.$primary-color;
+		}
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: variables.$spacing-lg;
+		margin-bottom: variables.$spacing-xl;
+	}
+
+	&__avatar {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background-color: variables.$primary-color;
+		color: white;
+		font-size: 36px;
+		font-weight: bold;
+		flex-shrink: 0;
+	}
+
+	&__title {
+		h1 {
+			font-size: variables.$font-size-xxl;
+			margin: 0;
+		}
+	}
+
+	&__username {
+		font-size: variables.$font-size-md;
+		color: variables.$text-secondary;
+		margin-top: variables.$spacing-xs;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: variables.$spacing-xl;
+
+		@media (min-width: variables.$breakpoint-md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__section {
+		background-color: variables.$card-background;
+		padding: variables.$spacing-lg;
+		border-radius: variables.$border-radius-md;
+		box-shadow: variables.$box-shadow-sm;
+
+		h2 {
+			font-size: variables.$font-size-lg;
+			margin-bottom: variables.$spacing-lg;
+			padding-bottom: variables.$spacing-sm;
+			border-bottom: 1px solid variables.$border-color;
+		}
+
+		&:nth-child(3) {
+			@media (min-width: variables.$breakpoint-md) {
+				grid-column: 1 / span 2;
+			}
+		}
+	}
+
+	&__item {
+		margin-bottom: variables.$spacing-md;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__label {
+		color: variables.$text-secondary;
+		font-size: variables.$font-size-sm;
+		margin-bottom: variables.$spacing-xs;
+	}
+
+	&__value {
+		font-weight: 500;
+	}
+}

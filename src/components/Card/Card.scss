@@ -1,0 +1,25 @@
+@use '../../styles/variables.scss';
+
+.card {
+	background-color: variables.$card-background;
+	border-radius: variables.$border-radius-md;
+	box-shadow: variables.$box-shadow-sm;
+	padding: variables.$spacing-lg;
+	margin-bottom: variables.$spacing-md;
+	transition:
+		transform variables.$transition-fast,
+		box-shadow variables.$transition-fast;
+
+	&--clickable {
+		cursor: pointer;
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: variables.$box-shadow-md;
+		}
+
+		&:active {
+			transform: translateY(0);
+		}
+	}
+}

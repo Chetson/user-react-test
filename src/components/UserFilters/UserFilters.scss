@@ -1,0 +1,64 @@
+@use 'sass:color';
+@use '../../styles/variables.scss';
+
+.user-filters {
+	background-color: variables.$card-background;
+	border-radius: variables.$border-radius-md;
+	box-shadow: variables.$box-shadow-sm;
+	padding: variables.$spacing-lg;
+	margin-bottom: variables.$spacing-xl;
+
+	&__controls {
+		display: flex;
+		flex-direction: column;
+		gap: variables.$spacing-md;
+
+		@media (min-width: variables.$breakpoint-md) {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	&__search {
+		flex: 1;
+
+		input {
+			width: 100%;
+		}
+	}
+
+	&__selects {
+		display: flex;
+		flex-direction: column;
+		gap: variables.$spacing-sm;
+
+		@media (min-width: variables.$breakpoint-md) {
+			flex-direction: row;
+			gap: variables.$spacing-md;
+		}
+
+		select {
+			min-width: 160px;
+		}
+	}
+
+	&__actions {
+		display: flex;
+		gap: variables.$spacing-md;
+
+		@media (max-width: variables.$breakpoint-md - 1) {
+			justify-content: flex-end;
+		}
+	}
+
+	&__reset {
+		background-color: variables.$text-light;
+
+		&:hover {
+			background-color: color.adjust(
+				variables.$text-light,
+				$lightness: -10%
+			);
+		}
+	}
+}

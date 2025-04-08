@@ -1,0 +1,86 @@
+@use '../../styles/variables.scss';
+
+.user-card {
+	display: flex;
+	align-items: center;
+	gap: variables.$spacing-md;
+
+	&__avatar {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background-color: variables.$primary-color;
+		color: white;
+		font-size: variables.$font-size-xl;
+		font-weight: bold;
+		flex-shrink: 0;
+	}
+
+	&__content {
+		flex: 1;
+	}
+
+	&__name {
+		margin: 0;
+		font-size: variables.$font-size-lg;
+		font-weight: 600;
+		color: variables.$text-primary;
+	}
+
+	&__username {
+		font-size: variables.$font-size-sm;
+		color: variables.$text-secondary;
+		margin: variables.$spacing-xs 0;
+	}
+
+	&__email {
+		font-size: variables.$font-size-sm;
+		color: variables.$primary-color;
+		margin-bottom: variables.$spacing-sm;
+	}
+
+	&__details {
+		display: flex;
+		gap: variables.$spacing-lg;
+		margin-top: variables.$spacing-sm;
+		font-size: variables.$font-size-sm;
+		color: variables.$text-secondary;
+	}
+
+	&__company {
+		position: relative;
+		padding-left: variables.$spacing-md;
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 12px;
+			height: 12px;
+			background-color: variables.$secondary-color;
+			border-radius: 50%;
+		}
+	}
+
+	&__city {
+		position: relative;
+		padding-left: variables.$spacing-md;
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 12px;
+			height: 12px;
+			background-color: variables.$accent-color;
+			border-radius: 50%;
+		}
+	}
+}

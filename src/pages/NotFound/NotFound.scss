@@ -1,0 +1,49 @@
+@use 'sass:color';
+@use '../../styles/variables.scss';
+
+.not-found {
+	padding: variables.$spacing-xxl 0;
+
+	&__content {
+		max-width: 600px;
+		margin: 0 auto;
+		text-align: center;
+
+		h1 {
+			font-size: 80px;
+			font-weight: 800;
+			color: variables.$primary-color;
+			margin: 0;
+			line-height: 1;
+		}
+
+		h2 {
+			font-size: variables.$font-size-xxl;
+			margin: variables.$spacing-sm 0 variables.$spacing-md;
+		}
+
+		p {
+			color: variables.$text-secondary;
+			margin-bottom: variables.$spacing-xl;
+		}
+	}
+
+	&__button {
+		display: inline-block;
+		padding: variables.$spacing-md variables.$spacing-xl;
+		background-color: variables.$primary-color;
+		color: white;
+		text-decoration: none;
+		border-radius: variables.$border-radius-md;
+		font-weight: 500;
+		transition: background-color variables.$transition-fast;
+
+		&:hover {
+			background-color: color.adjust(
+				variables.$primary-color,
+				$lightness: -10%
+			);
+			color: white;
+		}
+	}
+}

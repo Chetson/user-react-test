@@ -1,0 +1,111 @@
+@use 'sass:color';
+@use 'variables.scss';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: variables.$font-family;
+	font-size: variables.$font-size-md;
+	color: variables.$text-primary;
+	background-color: variables.$background-color;
+	line-height: 1.5;
+	min-height: 100vh;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+a {
+	color: variables.$primary-color;
+	text-decoration: none;
+	transition: color variables.$transition-fast;
+
+	&:hover {
+		color: color.adjust(variables.$primary-color, $lightness: -10%);
+	}
+}
+
+button {
+	cursor: pointer;
+	font-family: variables.$font-family;
+	font-size: variables.$font-size-md;
+	padding: variables.$spacing-sm variables.$spacing-md;
+	border-radius: variables.$border-radius-sm;
+	border: none;
+	background-color: variables.$primary-color;
+	color: white;
+	transition: background-color variables.$transition-fast;
+
+	&:hover {
+		background-color: color.adjust(
+			variables.$primary-color,
+			$lightness: -10%
+		);
+	}
+
+	&:disabled {
+		background-color: variables.$text-light;
+		cursor: not-allowed;
+	}
+}
+
+input,
+select {
+	font-family: variables.$font-family;
+	font-size: variables.$font-size-md;
+	padding: variables.$spacing-sm variables.$spacing-md;
+	border: 1px solid variables.$border-color;
+	border-radius: variables.$border-radius-sm;
+	transition: border-color variables.$transition-fast;
+
+	&:focus {
+		outline: none;
+		border-color: variables.$primary-color;
+	}
+}
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 variables.$spacing-md;
+}
+
+// Утилиты aka Tailwind
+.mt-sm {
+	margin-top: variables.$spacing-sm;
+}
+.mt-md {
+	margin-top: variables.$spacing-md;
+}
+.mt-lg {
+	margin-top: variables.$spacing-lg;
+}
+
+.mb-sm {
+	margin-bottom: variables.$spacing-sm;
+}
+.mb-md {
+	margin-bottom: variables.$spacing-md;
+}
+.mb-lg {
+	margin-bottom: variables.$spacing-lg;
+}
+
+.p-sm {
+	padding: variables.$spacing-sm;
+}
+.p-md {
+	padding: variables.$spacing-md;
+}
+.p-lg {
+	padding: variables.$spacing-lg;
+}

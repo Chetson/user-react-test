@@ -1,0 +1,50 @@
+@use '../../styles/variables.scss';
+
+.user-list {
+	padding: variables.$spacing-xl 0;
+
+	&__header {
+		margin-bottom: variables.$spacing-xl;
+
+		h1 {
+			font-size: variables.$font-size-xxl;
+			font-weight: 700;
+			color: variables.$text-primary;
+			margin-bottom: variables.$spacing-sm;
+		}
+
+		p {
+			color: variables.$text-secondary;
+			font-size: variables.$font-size-md;
+		}
+	}
+
+	&__content {
+		min-height: 300px;
+	}
+
+	&__empty {
+		text-align: center;
+		padding: variables.$spacing-xxl 0;
+		color: variables.$text-secondary;
+
+		h3 {
+			margin-bottom: variables.$spacing-md;
+			font-size: variables.$font-size-lg;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: variables.$spacing-md;
+
+		@media (min-width: variables.$breakpoint-sm) {
+			grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		}
+
+		@media (min-width: variables.$breakpoint-lg) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}

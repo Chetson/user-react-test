@@ -1,0 +1,59 @@
+@use '../../styles/variables.scss';
+
+.header {
+	background-color: white;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	padding: variables.$spacing-md 0;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__logo {
+		font-size: variables.$font-size-xl;
+		font-weight: 700;
+
+		a {
+			color: variables.$text-primary;
+			text-decoration: none;
+
+			&:hover {
+				color: variables.$primary-color;
+			}
+		}
+	}
+
+	&__nav {
+		ul {
+			display: flex;
+			list-style: none;
+			gap: variables.$spacing-lg;
+
+			li {
+				a {
+					color: variables.$text-secondary;
+					text-decoration: none;
+					padding: variables.$spacing-sm;
+					border-bottom: 2px solid transparent;
+					transition: all variables.$transition-fast;
+
+					&:hover {
+						color: variables.$primary-color;
+						border-bottom-color: variables.$primary-color;
+					}
+
+					&.active {
+						color: variables.$primary-color;
+						border-bottom-color: variables.$primary-color;
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+}
